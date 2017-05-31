@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<script src="http://cdn.auth0.com/js/lock/10.2.2/lock.min.js"></script>
+<script type="text/javascript">
+  var lock = new Auth0Lock('6jdyxcB8FzD0aF3cuewa1MTQza9Ifm8u', 'homework.eu.auth0.com', {
+    auth: {
+      redirectUrl: 'http://127.0.0.1:8000/accounts/login/callback',
+      responseType: 'code',
+      params: {
+        scope: 'openid name email picture' // Learn about scopes: https://auth0.com/docs/scopes
+      }
+    }
+  });
+  lock.show();
+</script>
+{% endblock %}
